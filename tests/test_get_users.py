@@ -2,7 +2,7 @@ import math
 import pytest
 
 
-class TestGetUsers():
+class TestGetUsers:
     @pytest.fixture(autouse=True)
     def setup(self, api):
         self.api = api
@@ -15,7 +15,7 @@ class TestGetUsers():
         """Validate the page information displayed aligns with the number of users."""
         response = self.api.get_users(per_page=1)
         expected_total = response.total
-        assert response.total_pages == math.ceil(response.total/response.per_page)
+        assert response.total_pages == math.ceil(response.total / response.per_page)
         all_users = self.api.get_all_users()
         assert expected_total == len(all_users)
 
