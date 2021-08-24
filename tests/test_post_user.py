@@ -15,6 +15,7 @@ class TestPostUser:
         response.validate()
         assert response.name == self.name
         assert response.job == self.job
+        assert False
 
     def test_valid_response_if_no_name(self):
         response = self.api.post_user(None, self.job)
