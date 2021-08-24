@@ -1,6 +1,8 @@
 import math
 import pytest
 
+pytestmark = pytest.mark.regression
+
 
 class TestGetUsers:
     @pytest.fixture(autouse=True)
@@ -9,7 +11,8 @@ class TestGetUsers:
 
     def test_valid_response(self):
         """Make a request to /users and validate the response. Validation comes from the schematics models."""
-        self.api.get_users()
+        response = self.api.get_users()
+        response.validate()
 
     def test_page_info(self):
         """Validate the page information displayed aligns with the number of users."""
@@ -22,11 +25,13 @@ class TestGetUsers:
     def test_negative_page_number(self):
         """Test a negative page number. Will not throw an error, but will have a blank response"""
         response = self.api.get_users(page=-4)
+        response.validate()
         assert response.data == []
 
     def test_string_page_number(self):
         """Test a string page number. Will not throw an error and response will default to page 1"""
         response = self.api.get_users(page="abc", per_page=1)
+        response.validate()
         assert response.page == 1
         assert len(response.data) == 1
 

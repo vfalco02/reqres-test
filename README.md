@@ -22,7 +22,7 @@ The initial work done in this approach was to define the response models for the
 Next, an `API` class was created that contain methods for interacting with the actual API. This provides wrappers around each of the API endpoints which will contain most of the
 information needed to submit the request and receive the response.
 
-After defining the models and API methods, the actual tests were created. An analysis of each endpoint was performed and test scenarios were determined.
+After defining the models and API methods, the actual tests were created. An analysis of each endpoint was performed and some main test scenarios were determined.
 Types of scenarios identified for coverage include:
 - Status codes
 - Validation of fields and types (provided by schematics)
@@ -39,14 +39,14 @@ adapt and change if there are issues that arise with the current approach.
 **Note**: As this is just a coding exercise, all models/tests were not covered. There is `TODO` notation to indicate other tests that should be created.
 
 # Pros and Cons of Approach
-## Pros
+### Pros
 - Develpoer friendly
 - Easy ramp up for python developers
 - Schematics provide built in structure/type validation for responses
 - Pytest provides multiple features to enhance testing - parametrization, fixtures, etc.
 - Very easy to extend
 
-## Cons
+### Cons
 - Not as simple for non-devs to understand
 - Tests are not in an "easy to read" format
 - Requires development experience in order to create new tests
@@ -74,3 +74,14 @@ pytest tests -p no:warnings
 Alternatively the setup and tests can be run from a Makefile using the following commands:
 - `make setup` - This will create your virtualenv and install necessary requirements.
 - `make test-all` - This will execute all tests within the `tests` directory
+- `make test-e2e` - This will execute all tests marked e2e (end-to-end scenarios)
+- `make test-regression` - This will execute all tests marked regression
+
+# Future Enhancements
+- Typing for all methods/parameters
+- Docstrings for all methods
+- Create models for request bodies
+- Custom types instead of generic types within the models (e.g. - create a NameType instead of using StringType)
+- Ensure all `assert` statements are not blank and have a custom message
+- Extend Makefile with more commands as the suite becomes more robust
+- Add unittests for framework functionality
