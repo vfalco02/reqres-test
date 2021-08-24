@@ -78,7 +78,7 @@ Alternatively the setup and tests can be run from a Makefile using the following
 - `make test-regression` - This will execute all tests marked regression
 
 # Running with GitHub Actions
-The full test suite can be run through GitHub Actions. The suite will be run on push to `main` as well as on pull request to `main`.
+The full test suite can be run through GitHub Actions. The suite will be run on push to `main`.
 Alternatively, you can manually kick off the action by navigating to the Actions page, selecting the `Req|Res Tests` workflow, clicking
 `Run Workflow`, and selecting the branch to run against.
 
