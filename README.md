@@ -1,7 +1,7 @@
 # reqres-test
 Test suite for testing Req|Res. This repo serves as a demo of how to test an API.
 
-# Rational of approach
+# Rationale of Approach
 The approach taken was to spin up an automation framework that would be very quick an easy to get off the ground.
 
 Utilizing pytest gives us ease of execution/reporting/coverage and since it is the predominant testing framework for python,
